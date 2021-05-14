@@ -83,4 +83,16 @@ def difference_hash(img1, img2):
     ham_dis = hamming_distance(hash1, hash2)
     return ham_dis
 
-
+def get_hash(file1, file2, file3):
+    a_hash1 = average_hash(file1, file2)
+    a_hash2 = average_hash(file1, file3)
+    a_hash3 = average_hash(file2, file3)
+    print('平均哈希 %s %s %s' % (a_hash1, a_hash2, a_hash3))
+    p_hash1 = perceptual_hash(file1, file2)
+    p_hash2 = perceptual_hash(file1, file3)
+    p_hash3 = perceptual_hash(file2, file3)
+    print('感知哈希 %s %s %s' % (p_hash1, p_hash2, p_hash3))
+    d_hash1 = difference_hash(file1, file2)
+    d_hash2 = difference_hash(file1, file3)
+    d_hash3 = difference_hash(file2, file3)
+    print('比较哈希 %s %s %s' % (d_hash1, d_hash2, d_hash3))
